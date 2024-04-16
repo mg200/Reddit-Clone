@@ -2,24 +2,30 @@
 # import Identifiers
 #import everything from Identifiers.py
 from Identifiers import *
-# from Identifiers import Identifiers
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+ #from Identifiers import Identifiers
 url="http://localhost:4723"
 driver=webdriver.Remote(url,options=AppiumOptions().load_capabilities(desired_caps))
 driver.implicitly_wait(10)
 
 #gloabl variables
 mariam_name="mariam"
-mariam_pass="pass1234"
+mariam_pass="newpass12345"
 
 jimmy_name="jimmy"
 jimmy_pass="pass1234"
 
 def login(name: str="mariam", password: str="pass1234"): #tested, CORRECT
-    el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
+    #el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
+    wait=WebDriverWait(driver, 10)
+    el1=wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Already a redditor? Log in")))
     el1.click()
     sleep(2)
     
-    email_field=driver.find_element(AppiumBy.XPATH, value=xpath_login_email_box)
+    #email_field=driver.find_element(AppiumBy.XPATH, value=xpath_login_email_box)
+    #replace with wait
+    email_field=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_login_email_box)))
     email_field.click()
     sleep(2)
     email_field.send_keys(name)
@@ -32,8 +38,7 @@ def login(name: str="mariam", password: str="pass1234"): #tested, CORRECT
     password_field.send_keys(password)
     sleep(2)
     driver.hide_keyboard()
-    # sleep(2)
-    
+    sleep(3)
     continue_button=driver.find_element(AppiumBy.XPATH, value=xpath_login_continue)
     continue_button.click()
     sleep(2)
@@ -126,8 +131,39 @@ def changeCountry(): #country is inside account settings
     goToAccountSettings()
 
     
-#login()
-#goToAccountSettings()
+def updateEmailAddress():
+    update_email_address=driver.find_element(AppiumBy.XPATH, value=update_email_address_xpath)
+    update_email_address.click()
+    sleep(2)
+    update_email_address_textbox=driver.find_element(AppiumBy.XPATH, value=update_email_address_textbox_xpath)
+    update_email_address_textbox.click()
+#    update_email_address_textbox.send_keys("     
 
 
-# driver.quit()
+def changePassword():
+    changePass=driver.find_element(AppiumBy.XPATH, value=change_password_xpath)
+    changePass.click()
+    sleep(1)
+    changePasswordcurPass=driver.find_element(AppiumBy.XPATH, value=change_password_current_password_xpath)
+    changePasswordcurPass.click()
+    sleep(1)
+    changePasswordcurPass.send_keys("pass1234")
+    driver.hide_keyboard()
+    sleep(2)
+    changePasswordNewPass=driver.find_element(AppiumBy.XPATH, value=change_password_new_password_xpath)
+    changePasswordNewPass.click()
+    sleep(1)
+    changePasswordNewPass.send_keys("newpass1234")
+    # if keyboard is open, hide it
+    driver.hide_keyboard()
+    sleep(2)
+    changePasswordConfirmNewPass=driver.find_element(AppiumBy.XPATH, value=change_password_confirm_new_password_xpath)
+    changePasswordConfirmNewPass.click()
+    sleep(1)
+    changePasswordConfirmNewPass.send_keys("newpass1234")
+    driver.hide_keyboard()
+    sleep(1)
+    changePasswordSave=driver.find_element(AppiumBy.XPATH, value=change_password_save_xpath)
+    changePasswordSave.click()
+    sleep(1)
+#changePassword()

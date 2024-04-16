@@ -35,6 +35,7 @@ xpath_34_1_post_settings="//android.view.View[@content-desc='11h ago Downvote th
 
 xpath_to_profile_tab="//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[3]"
 #//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[3]
+#//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[3]
 
 
 ###############################
@@ -60,6 +61,8 @@ account_settings_for_mariam_accessibility_id="Account settings for u/mariam"
 #update email address
 update_email_address_xpath="//android.view.View[@content-desc='Update email address mariamgamal70.backup@gmail.com']"
 update_email_address_accessibility_id="Update email address mariamgamal70.backup@gmail.com"
+update_email_address_textbox_xpath='//android.widget.EditText'
+
 
 #1.2- update password
 # change password
