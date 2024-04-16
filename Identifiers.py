@@ -28,9 +28,9 @@ Signup_accessibility_id="Sign up"
 #upvote and downvote
 # //android.view.View[@content-desc="11h ago Downvote this Every downvote matters... 😔 34 1"]
 
-xpath_upvote_34_post="//android.view.View[@content-desc='11h ago Downvote this Every downvote matters... 😔 34 1']/android.view.View[3]"
-xpath_downvote_1_post="//android.view.View[@content-desc='11h ago Downvote this Every downvote matters... 😔 34 1']/android.view.View[4]"
-xpath_34_1_post_settings="//android.view.View[@content-desc='11h ago Downvote this Every downvote matters... 😔 34 1']/android.view.View[2]"
+xpath_upvote_34_post="//android.view.View[@content-desc='11h ago Downvote this Every downvote matters... 😔 42 1']/android.view.View[3]"
+xpath_downvote_1_post="//android.view.View[@content-desc='11h ago Downvote this Every downvote matters... 😔 42 1']/android.view.View[4]"
+xpath_34_1_post_settings="//android.view.View[@content-desc='11h ago Downvote this Every downvote matters... 😔 42 1']/android.view.View[2]"
 
 
 xpath_to_profile_tab="//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[3]"
@@ -84,3 +84,27 @@ allow_people_to_follow_you_switch_xpath="//android.widget.Switch"
 
 
 # }
+
+
+
+
+###############
+# Navigation Window
+###############
+navigation_menu_xpath="//android.widget.Button[@content-desc='Open navigation menu']"
+navigation_menu_accessibility_id="Open navigation menu"
+
+following_xpath="//android.view.View[@content-desc='Following']"
+Eliot_himself_xpath='//android.view.View[@content-desc="u/Eliot"]'
+Eliot_star_unstar_xpath='//android.view.View[@content-desc="u/Eliot"]/android.widget.Button'
+
+
+
+my_favorites_xpath="//android.view.View[@content-desc='My favourites']"
+my_favorites_accessibility_id="My favourites"
+
+return_to_home_xpath='//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View'
+
+# //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View
+
+# //android.widget.Button[@content-desc="Open navigation menu"]

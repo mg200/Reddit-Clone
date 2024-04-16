@@ -82,14 +82,40 @@ def goToSettings(): #called from Home
     sleep(1)
     
     
+def goToNavigation():
+    naviation_menu=driver.find_element(AppiumBy.XPATH, value=navigation_menu_xpath)
+    naviation_menu.click()
+    sleep(1)
+    
+    my_favorites=driver.find_element(AppiumBy.XPATH, value=my_favorites_xpath)
+    my_favorites.click()
+    sleep(1)
+    my_favorites.click()
+    sleep(1)
+    
+    following=driver.find_element(AppiumBy.XPATH, value=following_xpath)
+    following.click()
+    sleep(1)
+    eliot_click=driver.find_element(AppiumBy.XPATH, value=Eliot_himself_xpath)
+    sleep(1)
+    eliot_star=driver.find_element(AppiumBy.XPATH,value=Eliot_star_unstar_xpath)
+    eliot_star.click()
+    sleep(2)
+    eliot_star.click()
+    sleep(1)
+    
+    # return_home=driver.find_element(AppiumBy.XPATH, value=return_to_home_xpath)
+    # return_home.click()
+    # sleep(1)
     
 
 # LoginandOut() # tested, correct
 
 # logout()
-login()
+# login()
 # goToSettings() #
 
+goToNavigation()
 
 
 
