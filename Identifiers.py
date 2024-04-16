@@ -56,6 +56,11 @@ settings_accessibility_id="Settings"
 account_settings_for_mariam_xpath="//android.view.View[@content-desc='Account settings for u/mariam']"
 account_settings_for_mariam_accessibility_id="Account settings for u/mariam"
 
+
+accSettingsJimmy="//android.view.View[@content-desc='Account settings for u/jimmyy']"
+#account_settings_for_mariam_accessibility_id="Account settings for u/jimmyy"
+
+
 # {
 # 1.1- account settings
 #update email address

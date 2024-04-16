@@ -1,2 +1,2 @@
 from main import *
-login()
+login(mariam_name, mariam_pass)

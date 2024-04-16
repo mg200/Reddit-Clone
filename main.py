@@ -11,17 +11,18 @@ driver.implicitly_wait(10)
 
 #gloabl variables
 mariam_name="mariam"
-mariam_pass="newpass12345"
+mariam_pass="pass1234"
+mariam_pass_new="pass12345"
 
-jimmy_name="jimmy"
+jimmy_name="jimmyy"
 jimmy_pass="pass1234"
-
-def login(name: str="mariam", password: str="pass1234"): #tested, CORRECT
+jimmy_pass_new="pass12345"
+def login(name: str, password: str): #tested, CORRECT
     #el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
     wait=WebDriverWait(driver, 10)
     el1 = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Already a redditor? Log in")))
     el1.click()
-    sleep(2)
+    sleep(1)
 
     email_field = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_login_email_box)))
     email_field.click()
@@ -47,7 +48,7 @@ def login(name: str="mariam", password: str="pass1234"): #tested, CORRECT
 def UpvoteDownvote():
     # el1 = driver.find_element(by=AppiumBy.XPATH, value=xpath_upvote_34_post)
     # el1.click()
-    # sleep(2)
+    # sleep(1)
     wait=WebDriverWait(driver, 10)
     
     el2 = driver.find_element(by=AppiumBy.XPATH, value=xpath_upvote_34_post)
@@ -69,7 +70,7 @@ def logout(): #from homepage, profile_tab, tested, CORRECT
     wait=WebDriverWait(driver, 10)
     profile_tab=driver.find_element(AppiumBy.XPATH, value=xpath_to_profile_tab)
     profile_tab.click()
-    sleep(2)
+    sleep(1)
     
     logout=driver.find_element(AppiumBy.XPATH, value=logout_in_list_xpath)
     logout.click()
@@ -77,7 +78,7 @@ def logout(): #from homepage, profile_tab, tested, CORRECT
 
 def LoginandOut(): #tested, CORRECT
     login()
-    sleep(2)
+    sleep(1)
     logout()
     
 
@@ -89,45 +90,46 @@ def clickProfileTabHome(): #called from Home
     profile_tab=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_to_profile_tab)))
     profile_tab.click()
     sleep(1)
-
 def goToSettings(): #called from Home
-    # login()
+    wait=WebDriverWait(driver, 10)
     clickProfileTabHome()
-    settings=driver.find_element(AppiumBy.XPATH, value=settings_xpath)
+    settings=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, settings_xpath)))
     settings.click()
     sleep(1)
-    
-    
+        
+        
 def goToNavigation():
-    naviation_menu=driver.find_element(AppiumBy.XPATH, value=navigation_menu_xpath)
+    wait=WebDriverWait(driver, 10)
+    naviation_menu=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, navigation_menu_xpath)))
     naviation_menu.click()
     sleep(1)
     
-    my_favorites=driver.find_element(AppiumBy.XPATH, value=my_favorites_xpath)
+    my_favorites=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, my_favorites_xpath)))
     my_favorites.click()
     sleep(1)
     my_favorites.click()
     sleep(1)
     
-    following=driver.find_element(AppiumBy.XPATH, value=following_xpath)
+    following=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, following_xpath)))
     following.click()
     sleep(1)
-    eliot_click=driver.find_element(AppiumBy.XPATH, value=Eliot_himself_xpath)
+    eliot_click=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, Eliot_himself_xpath)))
     sleep(1)
-    eliot_star=driver.find_element(AppiumBy.XPATH,value=Eliot_star_unstar_xpath)
-    eliot_star.click()
-    sleep(2)
+    eliot_star=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, Eliot_star_unstar_xpath)))
     eliot_star.click()
     sleep(1)
-    
-    # return_home=driver.find_element(AppiumBy.XPATH, value=return_to_home_xpath)
-    # return_home.click()
-    # sleep(1)
-    
+    eliot_star.click()
+    sleep(1)
+        
+        # return_home=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, return_to_home_xpath)))
+        # return_home.click()
+        # sleep(1)
+        
 
 def goToAccountSettings():
+    wait=WebDriverWait(driver, 10)
     goToSettings()
-    account_settings=driver.find_element(AppiumBy.XPATH, value=account_settings_for_mariam_xpath)
+    account_settings=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, account_settings_for_mariam_xpath)))
     account_settings.click()
     sleep(1)
     
@@ -136,38 +138,40 @@ def changeCountry(): #country is inside account settings
 
     
 def updateEmailAddress():
-    update_email_address=driver.find_element(AppiumBy.XPATH, value=update_email_address_xpath)
+    wait=WebDriverWait(driver, 10)
+    update_email_address=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, update_email_address_xpath)))
     update_email_address.click()
-    sleep(2)
-    update_email_address_textbox=driver.find_element(AppiumBy.XPATH, value=update_email_address_textbox_xpath)
+    sleep(1)
+    update_email_address_textbox=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, update_email_address_textbox_xpath)))
     update_email_address_textbox.click()
 #    update_email_address_textbox.send_keys("     
 
 
 def changePassword():
-    changePass=driver.find_element(AppiumBy.XPATH, value=change_password_xpath)
+    wait=WebDriverWait(driver, 10)
+    changePass=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_xpath)))
     changePass.click()
     sleep(1)
-    changePasswordcurPass=driver.find_element(AppiumBy.XPATH, value=change_password_current_password_xpath)
+    changePasswordcurPass=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_current_password_xpath)))
     changePasswordcurPass.click()
     sleep(1)
-    changePasswordcurPass.send_keys("pass1234")
+    changePasswordcurPass.send_keys(mariam_pass)
     driver.hide_keyboard()
-    sleep(2)
-    changePasswordNewPass=driver.find_element(AppiumBy.XPATH, value=change_password_new_password_xpath)
+    sleep(1)
+    changePasswordNewPass=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_new_password_xpath)))
     changePasswordNewPass.click()
     sleep(1)
-    changePasswordNewPass.send_keys("newpass1234")
+    changePasswordNewPass.send_keys(mariam_pass_new)
     # if keyboard is open, hide it
     driver.hide_keyboard()
-    sleep(2)
-    changePasswordConfirmNewPass=driver.find_element(AppiumBy.XPATH, value=change_password_confirm_new_password_xpath)
+    sleep(1)
+    changePasswordConfirmNewPass=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_confirm_new_password_xpath)))
     changePasswordConfirmNewPass.click()
     sleep(1)
-    changePasswordConfirmNewPass.send_keys("newpass1234")
+    changePasswordConfirmNewPass.send_keys(mariam_pass_new)
     driver.hide_keyboard()
     sleep(1)
-    changePasswordSave=driver.find_element(AppiumBy.XPATH, value=change_password_save_xpath)
+    changePasswordSave=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_save_xpath)))
     changePasswordSave.click()
     sleep(1)
-#changePassword()
+    #changePassword()
