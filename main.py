@@ -7,8 +7,14 @@ url="http://localhost:4723"
 driver=webdriver.Remote(url,options=AppiumOptions().load_capabilities(desired_caps))
 driver.implicitly_wait(10)
 
+#gloabl variables
+mariam_name="mariam"
+mariam_pass="pass1234"
 
-def login():
+jimmy_name="jimmy"
+jimmy_pass="pass1234"
+
+def login(name: str="mariam", password: str="pass1234"): #tested, CORRECT
     el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
     el1.click()
     sleep(2)
@@ -16,14 +22,14 @@ def login():
     email_field=driver.find_element(AppiumBy.XPATH, value=xpath_login_email_box)
     email_field.click()
     sleep(2)
-    email_field.send_keys("mariam")
+    email_field.send_keys(name)
     driver.hide_keyboard()
     sleep(2)
     
     password_field=driver.find_element(AppiumBy.XPATH, value=xpath_password_box)
     password_field.click()
     sleep(2)
-    password_field.send_keys("pass1234")
+    password_field.send_keys(password)
     sleep(2)
     driver.hide_keyboard()
     # sleep(2)
@@ -65,6 +71,7 @@ def logout(): #from homepage, profile_tab, tested, CORRECT
 
 def LoginandOut(): #tested, CORRECT
     login()
+    sleep(2)
     logout()
     
 
@@ -109,19 +116,18 @@ def goToNavigation():
     # sleep(1)
     
 
-# LoginandOut() # tested, correct
+def goToAccountSettings():
+    goToSettings()
+    account_settings=driver.find_element(AppiumBy.XPATH, value=account_settings_for_mariam_xpath)
+    account_settings.click()
+    sleep(1)
+    
+def changeCountry(): #country is inside account settings
+    goToAccountSettings()
 
-# logout()
-# login()
-# goToSettings() #
-
-goToNavigation()
-
-
-
-
-
-
+    
+#login()
+#goToAccountSettings()
 
 
 # driver.quit()
