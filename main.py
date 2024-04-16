@@ -19,29 +19,28 @@ jimmy_pass="pass1234"
 def login(name: str="mariam", password: str="pass1234"): #tested, CORRECT
     #el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
     wait=WebDriverWait(driver, 10)
-    el1=wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Already a redditor? Log in")))
+    el1 = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Already a redditor? Log in")))
     el1.click()
     sleep(2)
-    
-    #email_field=driver.find_element(AppiumBy.XPATH, value=xpath_login_email_box)
-    #replace with wait
-    email_field=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_login_email_box)))
+
+    email_field = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_login_email_box)))
     email_field.click()
-    sleep(2)
+    sleep(1)
     email_field.send_keys(name)
     driver.hide_keyboard()
-    sleep(2)
-    
-    password_field=driver.find_element(AppiumBy.XPATH, value=xpath_password_box)
+    sleep(1)
+
+    password_field = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_password_box)))
     password_field.click()
-    sleep(2)
+    sleep(1)
     password_field.send_keys(password)
-    sleep(2)
+    sleep(1)
     driver.hide_keyboard()
-    sleep(3)
-    continue_button=driver.find_element(AppiumBy.XPATH, value=xpath_login_continue)
+    sleep(1)
+
+    continue_button = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_login_continue)))
     continue_button.click()
-    sleep(2)
+    sleep(1)
 
 
 
@@ -49,6 +48,7 @@ def UpvoteDownvote():
     # el1 = driver.find_element(by=AppiumBy.XPATH, value=xpath_upvote_34_post)
     # el1.click()
     # sleep(2)
+    wait=WebDriverWait(driver, 10)
     
     el2 = driver.find_element(by=AppiumBy.XPATH, value=xpath_upvote_34_post)
     el2.click()
@@ -66,6 +66,7 @@ def UpvoteDownvote():
 
 
 def logout(): #from homepage, profile_tab, tested, CORRECT
+    wait=WebDriverWait(driver, 10)
     profile_tab=driver.find_element(AppiumBy.XPATH, value=xpath_to_profile_tab)
     profile_tab.click()
     sleep(2)
@@ -82,7 +83,10 @@ def LoginandOut(): #tested, CORRECT
 
 
 def clickProfileTabHome(): #called from Home
-    profile_tab=driver.find_element(AppiumBy.XPATH, value=xpath_to_profile_tab)
+    #profile_tab=driver.find_element(AppiumBy.XPATH, value=xpath_to_profile_tab)
+    #replace with wait function 
+    wait=WebDriverWait(driver, 10)
+    profile_tab=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_to_profile_tab)))
     profile_tab.click()
     sleep(1)
 
