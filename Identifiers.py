@@ -32,6 +32,8 @@ xpath_upvote_34_post="//android.view.View[@content-desc='11h ago Downvote this E
 xpath_downvote_1_post="//android.view.View[@content-desc='11h ago Downvote this Every downvote matters... 😔 42 1']/android.view.View[4]"
 xpath_34_1_post_settings="//android.view.View[@content-desc='11h ago Downvote this Every downvote matters... 😔 42 1']/android.view.View[2]"
 
+photoPostupvote="//android.view.View[@content-desc='21h ago photo post 0 0']/android.view.View[3]"
+photoPostdownvote="//android.view.View[@content-desc='21h ago photo post 0 0']/android.view.View[4]"
 
 xpath_to_profile_tab="//android.widget.FrameLayout[@resource-id='android:id/content']/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[3]"
 #//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button[3]
@@ -117,3 +119,25 @@ return_to_home_xpath='//android.widget.FrameLayout[@resource-id="android:id/cont
 # //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View
 
 # //android.widget.Button[@content-desc="Open navigation menu"]
+
+
+#create a post
+#login as Mariam
+
+
+createTab35_xp='//android.view.View[@content-desc="Create Tab 3 of 5"]'
+createTab35_accID='Create Tab 3 of 5'
+
+Title_xpath='//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[1]'
+body_text_xpath='//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.widget.EditText[2]'
+next_xpath='//android.widget.Button[@content-desc="Next"]'
+next_accID='Next'
+firstcommunity_xpath='//android.view.View[@content-desc="firstcommunity"]'
+firstcommunity_accID='firstcommunity'
+post_xpath='//android.widget.Button[@content-desc="Post"]'
+post_accID='Post'
+add_comment_xpath='//android.widget.EditText'
+letkeyboard_down='/hierarchy/android.widget.FrameLayout'
+post_comment_xpath='//android.widget.EditText/android.widget.Button'
+
+

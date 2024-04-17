@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
  #from Identifiers import Identifiers
 url="http://localhost:4723"
 driver=webdriver.Remote(url,options=AppiumOptions().load_capabilities(desired_caps))
-driver.implicitly_wait(10)
+driver.implicitly_wait(20)
 
 #gloabl variables
 mariam_name="mariam"
@@ -18,30 +18,36 @@ jimmy_name="jimmyy"
 jimmy_pass="pass1234"
 jimmy_pass_new="pass12345"
 def login(name: str, password: str): #tested, CORRECT
-    #el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
+    # el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
     wait=WebDriverWait(driver, 10)
     el1 = wait.until(EC.presence_of_element_located((AppiumBy.ACCESSIBILITY_ID, "Already a redditor? Log in")))
+    # el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
     el1.click()
     sleep(1)
 
     email_field = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_login_email_box)))
+    # email_field = driver.find_element(by=AppiumBy.XPATH, value=xpath_login_email_box)
     email_field.click()
     sleep(1)
     email_field.send_keys(name)
-    driver.hide_keyboard()
+    # driver.hide_keyboard()
     sleep(1)
 
     password_field = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_password_box)))
+    # password_field = driver.find_element(by=AppiumBy.XPATH, value=xpath_password_box)
     password_field.click()
-    sleep(1)
+    # sleep(1)
     password_field.send_keys(password)
     sleep(1)
+    #wait till keyboard is hidden
+    # wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_login_continue)))
     driver.hide_keyboard()
-    sleep(1)
-
+    # sleep(1)
     continue_button = wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_login_continue)))
+    # continue_button = driver.find_element(by=AppiumBy.XPATH, value=xpath_login_continue)
     continue_button.click()
-    sleep(1)
+    # sleep(1)
+    # driver.quit()
 
 
 
@@ -74,7 +80,7 @@ def logout(): #from homepage, profile_tab, tested, CORRECT
     
     logout=driver.find_element(AppiumBy.XPATH, value=logout_in_list_xpath)
     logout.click()
-    sleep(1)
+    # sleep(1)
 
 def LoginandOut(): #tested, CORRECT
     login()
@@ -89,13 +95,14 @@ def clickProfileTabHome(): #called from Home
     wait=WebDriverWait(driver, 10)
     profile_tab=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, xpath_to_profile_tab)))
     profile_tab.click()
-    sleep(1)
+    
 def goToSettings(): #called from Home
     wait=WebDriverWait(driver, 10)
     clickProfileTabHome()
     settings=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, settings_xpath)))
-    settings.click()
     sleep(1)
+    settings.click()
+    # sleep(1)
         
         
 def goToNavigation():
@@ -147,7 +154,7 @@ def updateEmailAddress():
 #    update_email_address_textbox.send_keys("     
 
 
-def changePassword():
+def changePassword(oldpass: str, newpass: str): #tested, CORRECT
     wait=WebDriverWait(driver, 10)
     changePass=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_xpath)))
     changePass.click()
@@ -155,23 +162,49 @@ def changePassword():
     changePasswordcurPass=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_current_password_xpath)))
     changePasswordcurPass.click()
     sleep(1)
-    changePasswordcurPass.send_keys(mariam_pass)
+    changePasswordcurPass.send_keys(oldpass)
     driver.hide_keyboard()
     sleep(1)
     changePasswordNewPass=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_new_password_xpath)))
     changePasswordNewPass.click()
     sleep(1)
-    changePasswordNewPass.send_keys(mariam_pass_new)
+    changePasswordNewPass.send_keys(newpass)
     # if keyboard is open, hide it
     driver.hide_keyboard()
     sleep(1)
     changePasswordConfirmNewPass=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_confirm_new_password_xpath)))
     changePasswordConfirmNewPass.click()
     sleep(1)
-    changePasswordConfirmNewPass.send_keys(mariam_pass_new)
+    changePasswordConfirmNewPass.send_keys(newpass)
     driver.hide_keyboard()
     sleep(1)
     changePasswordSave=wait.until(EC.presence_of_element_located((AppiumBy.XPATH, change_password_save_xpath)))
     changePasswordSave.click()
-    sleep(1)
+    # sleep(1)
     #changePassword()
+
+
+
+def Post():
+    el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Create\nTab 3 of 5")
+    el1.click()
+    el2 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.EditText\").instance(0)")
+    el2.send_keys("Post1")
+    el2.click()
+    el3 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.EditText\").instance(0)")
+    el3.send_keys("Post1")
+    el4 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.EditText\").instance(1)")
+    el4.click()
+    el4.send_keys("post content, it's jimmy")
+    el5 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Next")
+    el5.click()
+    el6 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.view.View\").instance(6)")
+    el6.click()
+    el6.click()
+    el6.send_keys("football")
+    el6.click()
+    el6.send_keys("football")
+    
+# Post()
+# def createCommunity():
+    
