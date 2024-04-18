@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as E
 post_name="insert post name" # change this to the name of the post you want to create
 post_body="insert the body of your post" # change this to the body of the post you want to create
     
-def postRecorded():
+def post():
     el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Create\nTab 3 of 5")
     el1.click()
     sleep(2)
@@ -30,4 +30,4 @@ def postRecorded():
     sleep(2)
     
     
-postRecorded()
+post()
