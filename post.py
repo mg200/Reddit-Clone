@@ -2,8 +2,8 @@ from main import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as E
-post_name="my post" # change this to the name of the post you want to create
-post_body="this is my post" # change this to the body of the post you want to create
+post_name="insert post name" # change this to the name of the post you want to create
+post_body="insert the body of your post" # change this to the body of the post you want to create
     
 def postRecorded():
     el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Create\nTab 3 of 5")
