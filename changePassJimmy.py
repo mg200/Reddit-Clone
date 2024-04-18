@@ -1,6 +1,8 @@
 from main import *
 import time
 
+username="jimmyy"
+
 # oldpass = jimmy_pass_new
 # newpass = jimmy_pass
 
@@ -14,7 +16,7 @@ def ChangePassJimmy():
     
     el2 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.EditText\").instance(0)")
     el2.click()
-    el2.send_keys("jimmyy")
+    el2.send_keys(username)
     sleep(2)  
     
     el3 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.view.View\").instance(7)")
@@ -79,7 +81,7 @@ def ChangePassJimmy():
     el16 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Save")
     el16.click()
     sleep(2)  
-    
+    #login again
     
     el17 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
     el17.click()
@@ -87,7 +89,7 @@ def ChangePassJimmy():
     
     el18 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.EditText\").instance(0)")
     el18.click()
-    el18.send_keys("jimmyy")
+    el18.send_keys(username)
     sleep(2)  
     
     el19 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.view.View\").instance(7)")

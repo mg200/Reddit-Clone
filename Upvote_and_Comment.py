@@ -1,4 +1,6 @@
 from main import *
+#this likely upvotes the first existing post and comments on it the forthcoming comment
+comment_content="newest comment 17/4/2013"
 def upvoteDownvoteComment():
     el1 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.view.View\").instance(14)")
     el1.click()
@@ -18,7 +20,7 @@ def upvoteDownvoteComment():
     sleep(1)
     el6 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText")
     el6.click()
-    el6.send_keys("insert your comment here")
+    el6.send_keys(comment_content)
     el7 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.Button\").instance(12)")
     el7.click()
     el8 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.Button\").instance(0)")

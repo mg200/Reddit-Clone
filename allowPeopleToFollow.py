@@ -1,8 +1,10 @@
 from main import *
 #very important
 #LOGGED IN as Mariam
-
 #a function to allow people to follow you and logs out afterwards
+
+#TODO:for this function to be customized, you need to values by which you 'find_element' are those of the logged in user 
+# phase 4 task
 def test_allow_people_to_follow():
     el1 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.Button\").instance(4)")
     el1.click()

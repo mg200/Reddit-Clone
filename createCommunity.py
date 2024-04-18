@@ -1,5 +1,5 @@
 from main import *
-# from selenium.webdriver.common.interactions.pointer_input import PointerInput
+community_name="jimmy's new community"
 def createCommunity():
     el1 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.Button\").instance(4)")
     el1.click()
@@ -10,7 +10,7 @@ def createCommunity():
     el3 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.EditText")
     el3.click()
     sleep(2)
-    el3.send_keys("Testing Squad")
+    el3.send_keys(community_name)
     sleep(2)
     el4 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Public")
     el4.click()
