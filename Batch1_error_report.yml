@@ -1,0 +1,87 @@
+---------------------*************Final phase:**********************---------------------
+(Crucial Tip: Click Alt+Z to wrap text around and see them in a more organized manner)
+
+First page:
+When you sign in from the usual first page, the 'Continue' button is written 'Conitnue'
+
+
+Saved Comments scenario:
+you save a comment and WITHOUT returning from the view that is viewing the post, you click on the profile tab, navigate to the 'Saved' and click the Unsave button on that said comment, you go back to the same post view BUT you find the post still asking to 'Unsave'--it should update without having to exit that post view mode.
+
+
+2. COMMENTS :
+1. after writing a comment and clicking the posting arrow '-->' , you need to click on the post in order to exit the typing mode and hide the keyboard..normally this should go down on their own (i.e. automatically) after the user posts the comment.
+
+2. The comment doesn't show up immediately after posting it, you need to refresh the page to see it. Normally, the comment should show up immediately after posting it.
+
+3. When you write a long comment, the comment box is cut into half and you can't see the lower part of what you're typing. The comment box should expand as you type more words. (the backend crashes after this...I don't know why!!!)
+
+
+a)upvote/downvote:
+
+1. The downvote in the posts or in the posts shown in the personal profile page or anywhere can NOT be undone..i.e. once you downvote you can't 'un-downvote' (this was actually working in the last phase and the last pull I made, but now it's not, so check if it's a version issue)
+
+
+
+
+
+Viewing a post in Communities:
+
+1. the three dots don't go down after you click them
+2. there's no back button
+
+
+Posts:
+1. ****FATAL MISTAKE**** I made a post and actually posted it, but when I returned back, it still showed the interface where I enter the post title, the post content, the 'Post' button and the 'X' button...this shouldn't be there.(this mistake has been there since the last phase)..normally after posting a post, the user should be able to see the post they just posted, and the interface should be gone. if there's a 'X' button or 'Go Back' button, it should be for the user to exit the post view mode and go back to the main page.
+
+  This error also happens when you share a post in the community. When you click the '<-' button the interface is still there.
+
+
+
+2. When posting and click to see the 'Rules', no 'Rules' pop up, but the 'I understand button' is there. The 'Rules' should be inside the pop-up that appears when you click on the 'Rules' button.
+
+3. ****VERY VERY IMPORTANT**** in the homepage and the personal Profile page, the posts should be shown in a descending order, i.e. the latest post should be on top, but it's the opposite now.
+e.g. I had a post posted on April 15 and a post today, the post from April 15 is on top of the posts shown in my personal profile but the post I just posted (the most recent) is at the end of list of the posts shown in my profile. 
+
+
+4. The three dots '...' in the posts are NOT working properly. After being clicked and the list that has the 'Save/Unsave', 'Copy Text', 'Report' and 'Delete' options appear, they don't go down if you click them again or anywhere on the screen. They should go down if you click them again.
+In short, they should go down on their own if you click anywhere on the screen whether or not you click on any item inside them.
+
+
+Communities:
+1. the three dots in the community page (after you've just created the community or in general) have many functionalities that are still NOT implemented.
+2.
+
+
+Time:
+Old posts/comments appear in terms of 'hrs' always...for example I've seen posts that were posted '429' hours ago...
+in normal Reddit the time the posts/comments were made is registered in hrs, but after a respective amount of time, in days, weeks, months and years...'1 day ago', '2 days ago', '1 week ago', and so on
+
+
+
+
+
+
+
+
+
+Backend:
+Backend error that I believe the two teams should figure out as it pops at times
+Backend sometimes crashes mid-run with this error 
+
+E:\Spring2024\SW\Phase3\Backend\node_modules\firebase-admin\lib\messaging\messaging-internal.js:53
+        throw new error_1.FirebaseMessagingError(error_1.MessagingClientErrorCode.INVALID_PAYLOAD, 'Exactly one of topic, token or condition is required');
+              ^
+
+FirebaseMessagingError: Exactly one of topic, token or condition is required
+    at Messaging.send (E:\Spring2024\SW\Phase3\Backend\node_modules\firebase-admin\lib\messaging\messaging.js:185:50)
+    at E:\Spring2024\SW\Phase3\Backend\controllers\notificationcontroller.js:89:24
+    at Object.sendNotification (E:\Spring2024\SW\Phase3\Backend\utils\catchasync.js:3:5)
+    at E:\Spring2024\SW\Phase3\Backend\controllers\commentcontroller.js:113:30
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  errorInfo: {
+    code: 'messaging/invalid-payload',
+    message: 'Exactly one of topic, token or condition is required'
+  },
+  codePrefix: 'messaging'
+}
