@@ -25,10 +25,6 @@ a)upvote/downvote:
 
 
 
-Viewing a post in Communities:
-
-1. the three dots don't go down after you click them
-2. there's no back button
 
 
 Posts:
@@ -50,8 +46,6 @@ In short, they should go down on their own if you click anywhere on the screen w
 
 Communities:
 1. the three dots in the community page (after you've just created the community or in general) have many functionalities that are still NOT implemented.
-2.
-
 
 Time:
 Old posts/comments appear in terms of 'hrs' always...for example I've seen posts that were posted '429' hours ago...
@@ -62,26 +56,3 @@ in normal Reddit the time the posts/comments were made is registered in hrs, but
 
 
 
-
-
-
-Backend:
-Backend error that I believe the two teams should figure out as it pops at times
-Backend sometimes crashes mid-run with this error 
-
-E:\Spring2024\SW\Phase3\Backend\node_modules\firebase-admin\lib\messaging\messaging-internal.js:53
-        throw new error_1.FirebaseMessagingError(error_1.MessagingClientErrorCode.INVALID_PAYLOAD, 'Exactly one of topic, token or condition is required');
-              ^
-
-FirebaseMessagingError: Exactly one of topic, token or condition is required
-    at Messaging.send (E:\Spring2024\SW\Phase3\Backend\node_modules\firebase-admin\lib\messaging\messaging.js:185:50)
-    at E:\Spring2024\SW\Phase3\Backend\controllers\notificationcontroller.js:89:24
-    at Object.sendNotification (E:\Spring2024\SW\Phase3\Backend\utils\catchasync.js:3:5)
-    at E:\Spring2024\SW\Phase3\Backend\controllers\commentcontroller.js:113:30
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
-  errorInfo: {
-    code: 'messaging/invalid-payload',
-    message: 'Exactly one of topic, token or condition is required'
-  },
-  codePrefix: 'messaging'
-}
