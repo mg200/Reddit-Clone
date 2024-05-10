@@ -5,7 +5,7 @@ from Identifiers import *
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
-
+import time
 #from Identifiers import Identifiers
 url="http://localhost:4723"
 driver=webdriver.Remote(url,options=AppiumOptions().load_capabilities(desired_caps))

@@ -4,8 +4,8 @@
 # views it in the communities and stars it
 
 from main import *
-communityName="insert the name of your community"
-accessType="Public" # or Private or Restricted
+communityName="Jewish Watch"
+accessType="Private" # or Private or Restricted
 
 el1 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.Button\").instance(4)")
 el1.click()
