@@ -38,7 +38,7 @@ el29 = driver.find_element(by=AppiumBy.CLASS_NAME, value="android.widget.Switch"
 el29.click()
 time.sleep(1)
 
-el30 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="0%")
+el30 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="54%")
 el30.click()
 time.sleep(1)
 
