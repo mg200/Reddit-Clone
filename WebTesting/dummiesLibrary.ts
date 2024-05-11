@@ -21,8 +21,8 @@ export const userB = {
 };
 
 export const userC = {
-    username: 'This_Bug4217',
-    password: 'AnotherCoolPassword'
+    username: 'HassanHatem1',
+    password: 'pass12345'
 };
 
 
@@ -42,15 +42,19 @@ export const paths = {
 
 export const search_test_data = {
   username: 'moashraf5',
-  subreddit: 'testingSquad2',
+  subreddit: 'testingGang',
   post_title: 'MoAshrafPT', // testing post 1
   comment: 'dummyLib.search_test_data.comment', // testing comment 1
-  invalid_search_term: 'invald_search_term'
+  invalid_search_term: 'invald_search_term _X_X_',
+  post_content: 'This is a test post for testing purposes',
+  post_title_2: 'MoAshrafPT2',
+  post_content_2: 'This is a test post for testing purposes 2',
+  comment_2 : 'aaaaaaaaaaaaah'
 };
 
 export const communities_test_data = {
   communityName: 'testingCommunity',//
-  newCommunityName: 'testingSquad2',//
+  newCommunityName: 'testing6',//
   // communityDescription: 'This is a test community for testing purposes',
   // communityTitle: 'Test Community'
 };
