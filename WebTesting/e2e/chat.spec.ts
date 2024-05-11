@@ -18,7 +18,7 @@ test.describe('CHATTING', () => {
     //     const loggedInElement = await page.getByAltText('threadit logo');
     //     expect(loggedInElement).not.toBeNull();    
     // });
-
+  
     test('UserA creates a chatroom with user B', async ({page, browser}) => {
             
             // User A logs in and creates a chatroom with User B
