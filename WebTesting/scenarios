@@ -1,0 +1,44 @@
+Here are some end-to-end (E2E) test scenarios for a Reddit-like application:
+
+User Registration and Login
+
+Test if a new user can successfully register.
+Test if a registered user can successfully log in.
+Test if the system blocks login attempts with incorrect credentials.
+Subreddit Creation and Subscription
+
+Test if a user can successfully create a new subreddit.
+Test if a user can subscribe to an existing subreddit.
+Test if a user can unsubscribe from a subreddit they're currently subscribed to.
+Post Creation, Editing, and Deletion
+
+Test if a user can create a new text post in a subreddit.
+Test if a user can edit their own post.
+Test if a user can delete their own post.
+Test if a user can create a new image or video post in a subreddit.
+Commenting
+
+Test if a user can comment on a post.
+Test if a user can reply to a comment.
+Test if a user can edit their own comment.
+Test if a user can delete their own comment.
+Voting
+
+Test if a user can upvote a post.
+Test if a user can downvote a post.
+Test if a user can remove their vote from a post.
+Test if a user can upvote a comment.
+Test if a user can downvote a comment.
+Test if a user can remove their vote from a comment.
+User Profile
+
+Test if a user can view their own profile.
+Test if a user can edit their profile information.
+Test if a user can view another user's profile.
+Notifications
+
+Test if a user receives a notification when someone comments on their post.
+Test if a user receives a notification when someone replies to their comment.
+Test if a user can view their notifications.
+Test if a user can clear their notifications.
+Remember to include both positive and negative test cases. For example, not only test if a user can edit their own post, but also test if the system prevents a user from editing someone else's post.
