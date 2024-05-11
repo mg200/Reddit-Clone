@@ -1,3 +1,12 @@
+
+"""
+Test Scenario: profile_view
+
+This test verifies the functionalities inside the profile view, the user can view the comments and the about section of the profile.
+
+Author: Mohamed Gamal
+Date: Mai 11, 2024
+"""
 import sys
 sys.path.append('E:\Spring2024\SW\Phase3\mobile_tests\MobileTesting\Phase_4')
 from main import *
