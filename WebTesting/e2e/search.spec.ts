@@ -23,15 +23,19 @@ test.beforeEach('Log in', async ({ page }) => {
 //  SEARCH TESTS
 test('Search by username', async ({ page }) => {
     await page.getByPlaceholder('Search…').click();
-    await page.getByPlaceholder('Search…').fill(dummyLib.search_test_data.username);
-    await page.getByRole('link', { name: 'All results for ' + dummyLib.search_test_data.username }).click();
+    await page.getByPlaceholder('Search…').fill(dummyLib.userB.username);
+    await page.getByRole('link', { name: 'All results for ' + dummyLib.userB.username }).click();
     await page.getByRole('tab', { name: 'Users' }).click();
-    await page.getByRole('link', { name: dummyLib.search_test_data.username + ' u/' + dummyLib.search_test_data.username + ' Karma:' }).click(); 
-    const AssertionElement = await page.getByRole('heading', { name: 'u/' + dummyLib.search_test_data.username });
+    await page.getByRole('link', { name: dummyLib.userB.username + ' u/' + dummyLib.userB.username + ' Karma:' }).click(); 
+    const AssertionElement = await page.getByRole('heading', { name: 'u/' + dummyLib.userB.username });
     expect(AssertionElement).not.toBeNull();
 });
 
 test ('Search by subreddit', async ({ page }) => {
+    await page.getByRole('link', { name: 'Create a community' }).click();
+    await page.getByLabel('Name').fill(dummyLib.search_test_data.subreddit);
+    await page.getByTestId('PublicIcon').click();
+    await page.getByRole('button', { name: 'Create t/' + dummyLib.search_test_data.subreddit }).click();
     await page.getByPlaceholder('Search…').click();
     await page.getByPlaceholder('Search…').fill(dummyLib.search_test_data.subreddit);
     await page.getByRole('link', { name: 'icon t/' + dummyLib.search_test_data.subreddit }).click();
@@ -41,11 +45,19 @@ test ('Search by subreddit', async ({ page }) => {
 });
 
 test('Search by post', async ({ page }) => {
+    await page.getByRole('button', { name: 'Create' }).click();
+    await page.getByRole('tab', { name: 'Post' }).click();
+    await page.locator('#community-dropdown').selectOption('username');
+    await page.getByTestId('title').click();
+    await page.getByTestId('title').fill(dummyLib.search_test_data.post_title);
+    await page.getByTestId('text').click();
+    await page.getByTestId('text').fill(dummyLib.search_test_data.post_content);
+    await page.getByTestId('post').click();
+
     await page.getByPlaceholder('Search…').click();
     await page.getByPlaceholder('Search…').fill(dummyLib.search_test_data.post_title);
     await page.getByPlaceholder('Search…').press('Enter');
     await page.getByRole('tab', { name: 'Posts' }).click();
-    // await page.getByRole('link', { name: dummyLib.search_test_data.post_title }).first().click(); // equivalent to the next line
     await page.getByRole('link', { name: dummyLib.search_test_data.post_title }).nth(0).click();
     await page.getByRole('link', { name: dummyLib.search_test_data.post_title }).click();
     const AssertionElement = await page.getByRole('heading', { name: dummyLib.search_test_data.post_title });
@@ -54,11 +66,23 @@ test('Search by post', async ({ page }) => {
 
 
 test ('Search by comment', async ({ page }) => {
+    await page.getByRole('button', { name: 'Create' }).click();
+    await page.getByRole('tab', { name: 'Post' }).click();
+    await page.locator('#community-dropdown').selectOption('username');
+    await page.getByTestId('title').click();
+    await page.getByTestId('title').fill(dummyLib.search_test_data.post_title_2);
+    await page.getByTestId('text').click();
+    await page.getByTestId('text').fill(dummyLib.search_test_data.post_content_2);
+    await page.getByTestId('post').click();
+    await page.getByText('Add a comment').click();
+    await page.locator('textarea').click();
+    await page.locator('textarea').fill(dummyLib.search_test_data.comment_2);
+    await page.getByRole('button', { name: 'Comment' }).click();
     await page.getByPlaceholder('Search…').click();
-    await page.getByPlaceholder('Search…').fill(dummyLib.search_test_data.comment);
+    await page.getByPlaceholder('Search…').fill(dummyLib.search_test_data.comment_2);
     await page.getByPlaceholder('Search…').press('Enter');
     await page.getByRole('tab', { name: 'Comments' }).click();
-    const AssertionElement = await page.getByText(dummyLib.search_test_data.comment);
+    const AssertionElement = await page.getByText(dummyLib.search_test_data.comment_2);
     expect(AssertionElement).not.toBeNull();
 });
 

@@ -5,7 +5,7 @@ test.beforeEach('Log in', async ({ page }) => {
     await page.setViewportSize({width: 1366, height: 720});
     await page.evaluate(() => { (document.body.style as any).zoom = 'reset'; });
     
-    await page.goto(dummyLib.paths.LocalHost + '/login', { waitUntil: 'load' });
+    await page.goto(dummyLib.paths.webPath + '/login', { waitUntil: 'load' });
     
     // Enter the correct email-password combination
     await page.getByLabel('Password *').click();
@@ -20,35 +20,34 @@ test.beforeEach('Log in', async ({ page }) => {
     expect(loggedInElement).not.toBeNull();
   });
   
-test ('Create community', async ({ page }) => {
+test ('communities', async ({ page }) => {
     await page.getByRole('link', { name: 'Create a community' }).click();
     await page.getByLabel('Name').fill(dummyLib.communities_test_data.newCommunityName);
     await page.getByTestId('PublicIcon').click();
     await page.getByRole('button', { name: 'Create t/' + dummyLib.communities_test_data.newCommunityName }).click();
-    
-});
+    expect(await page.getByRole('heading', { name: 't/' + dummyLib.communities_test_data.newCommunityName })).not.toBeNull();
+    await page.getByRole('link', { name: 'Communities' }).click();
+    await page.getByRole('link', { name: 't/' + dummyLib.communities_test_data.newCommunityName +' Members:' }).click();
 
-test('Join community', async ({ page }) => {
-
-});
-
-test('Leave community', async ({ page }) => {
-
-});
-
-test ('Add community to favorites', async ({ page }) => {
+    expect(await page.getByRole('heading', { name: 't/' + dummyLib.communities_test_data.newCommunityName })).not.toBeNull();
+    // Add community to favorites
     await page.locator('#item-4').getByRole('button').nth(1).click();
     await page.getByRole('menuitem', { name: 'Favorite' }).click();
     await page.locator('.MuiBackdrop-root').first().click();
-    const AssertionElement =  await page.locator('details').filter({ hasText: 'FAVORITES t/' + dummyLib.communities_test_data.communityName }).getByRole('link');
+    let AssertionElement =  await page.locator('details').filter({ hasText: 'FAVORITES t/' + dummyLib.communities_test_data.newCommunityName }).getByRole('link');
     expect(AssertionElement).not.toBeNull();
-});
+    await page.getByRole('link', { name: 't/' + dummyLib.communities_test_data.newCommunityName }).first().click();
+    expect(await page.getByRole('heading', { name: 't/' + dummyLib.communities_test_data.newCommunityName })).not.toBeNull();
 
-
-test ('Remove community from favorites', async ({ page }) => {
+    // Remove community from favorites
     await page.locator('#item-4').getByRole('button').nth(1).click();
     await page.getByRole('menuitem', { name: 'Favorite' }).click();
     await page.locator('.MuiBackdrop-root').first().click();
-    const AssertionElement =  await page.locator('details').filter({ hasText: 'FAVORITES t/' + dummyLib.communities_test_data.communityName }).getByRole('link');
-    expect(AssertionElement).toBeNull();
+    AssertionElement =  await page.locator('details').filter({ hasText: 'FAVORITES t/' + dummyLib.communities_test_data.newCommunityName }).getByRole('link');
+
+    await page.locator('#item-4').getByRole('button').nth(1).click();
+    await page.getByTestId('FavoriteBorderIcon').click();
+    await page.locator('.MuiBackdrop-root').first().click();
+    expect(await page.locator('summary').filter({ hasText: 'FAVORITES' }).getByRole('img')).not.toBeNull();
+    
 });

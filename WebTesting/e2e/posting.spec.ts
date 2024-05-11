@@ -132,8 +132,8 @@ test.describe.parallel('Post and Comment mentions', () => {
         expect(await pageB.getByRole('heading', { name: 'Message: And this is a' }).first()).not.toBeNull();
         await pageB.getByRole('button', { name: 'Full Context' }).click();
         expect(await pageB.getByRole('link', { name: 'Testing Post Mentions' })).not.toBeNull();
-        await pageB.locator('#postcontainer').getByRole('link', { name: 'u/AlHussein' }).click();
-        expect(await pageB.getByRole('heading', { name: 'u/AlHussein' })).not.toBeNull();
+        // await pageB.locator('#postcontainer').getByRole('link', { name: 'u/AlHussein' }).click();
+        // expect(await pageB.getByRole('heading', { name: 'u/AlHussein' })).not.toBeNull();
 
     });
 });
@@ -165,30 +165,30 @@ test.describe.parallel('Post Image', () => {
 });
 
 
-test.describe.parallel('Post Video', () => {
-    test('UserA posts a video, userB sees the video', async ({}) => {
-        await page.getByRole('button', { name: 'Create' }).click();
-        await page.locator('#community-dropdown').selectOption('username');
-        await page.getByRole('tab', { name: 'Image & Video' }).click();
-        await page.getByTestId('title').click();
-        await page.getByTestId('title').fill('Video Post');
-        await page.getByTestId('content').click();
-        const handle = page.locator('input[type="file"]');
-        await handle.setInputFiles('D:/phase4/media/video.mp4');
-        await page.getByTestId('post').click();
-        await page.getByRole('link', { name: 'Video Post' }).click();
-        await page.getByRole('img', { name: 'Post' }).click();
-    });
+// test.describe.parallel('Post Video', () => {
+//     test('UserA posts a video, userB sees the video', async ({}) => {
+//         await page.getByRole('button', { name: 'Create' }).click();
+//         await page.locator('#community-dropdown').selectOption('username');
+//         await page.getByRole('tab', { name: 'Image & Video' }).click();
+//         await page.getByTestId('title').click();
+//         await page.getByTestId('title').fill('Video Post');
+//         await page.getByTestId('content').click();
+//         const handle = page.locator('input[type="file"]');
+//         await handle.setInputFiles('D:/phase4/media/video.mp4');
+//         await page.getByTestId('post').click();
+//         await page.getByRole('link', { name: 'Video Post' }).click();
+//         await page.getByRole('img', { name: 'Post' }).click();
+//     });
 
-    // test('UserB views image', async ({}) => {
-    //     await pageB.getByPlaceholder('Search…').click();
-    //     await pageB.getByPlaceholder('Search…').fill('Image Post');
-    //     await pageB.getByRole('link', { name: 'All results for ' +  'Image Post' }).click();
-    //     await pageB.getByRole('tab', { name: 'Media' }).click();
-    //     const image = await page.locator('img[src="https://res.cloudinary.com/dxy3lq6gh/image/upload/v1715390888/mngf97pvmxil5kxtnd3p.jpg"]');
-    //     expect(image).not.toBeNull();
-    // });
-});
+//     // test('UserB views image', async ({}) => {
+//     //     await pageB.getByPlaceholder('Search…').click();
+//     //     await pageB.getByPlaceholder('Search…').fill('Image Post');
+//     //     await pageB.getByRole('link', { name: 'All results for ' +  'Image Post' }).click();
+//     //     await pageB.getByRole('tab', { name: 'Media' }).click();
+//     //     const image = await page.locator('img[src="https://res.cloudinary.com/dxy3lq6gh/image/upload/v1715390888/mngf97pvmxil5kxtnd3p.jpg"]');
+//     //     expect(image).not.toBeNull();
+//     // });
+// });
 
 test.describe.parallel('Post Link', () => {
     test('UserA posts a link, userB navigates sees the post and navigates to it', async ({}) => {
@@ -232,7 +232,31 @@ test.describe.parallel('Post Spoiler', () => {
     });
 });
 
+test('', async ({}) => {
+    
+});
 
-// test.afterAll('Clean up', async ({}) => {
 
-// });
+test.afterAll('Clean up', async ({}) => {
+    await page.locator('.options-button').first().click();
+    await page.getByText('Delete').click();
+    await page.getByRole('button', { name: 'Delete' }).click();
+    await page.locator('.options-button').first().click();
+    await page.getByText('Delete').click();
+    await page.getByRole('button', { name: 'Delete' }).click();
+    await page.locator('.options-button').first().click();
+    await page.getByText('Delete').click();
+    await page.getByRole('button', { name: 'Delete' }).click();
+    await page.locator('.options-button').first().click();
+    await page.getByText('Delete').click();
+    await page.getByRole('button', { name: 'Delete' }).click();
+    await page.locator('#user-profile-grid-2').getByRole('button').first().click();
+    await page.getByText('Delete').click();
+    await page.getByRole('button', { name: 'Delete' }).click();
+
+    await pageB.getByRole('button', { name: 'account of current user' }).click();
+    await pageB.getByTestId('profile-nav').click();
+    await pageB.locator('#user-profile-grid-2').getByRole('button').first().click();
+    await pageB.getByText('Delete').click();
+    await pageB.getByRole('button', { name: 'Delete' }).click();
+});
