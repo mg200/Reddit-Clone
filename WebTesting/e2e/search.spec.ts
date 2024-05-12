@@ -109,21 +109,15 @@ test('Search by invalid search term', async ({ page }) => {
 });
 
 // This case is not handled in the code, neither is the case of whitespace search term
-// test('Search by empty search term', async ({ page }) => {
-//     await page.getByPlaceholder('Search…').click();
-//     await page.getByPlaceholder('Search…').press('Enter');
-//     let AssertionElement =  await page.getByRole('heading', { name: 'Search Results for ""' });
-//     expect(AssertionElement).not.toBeNull();
-//     AssertionElement =  await page.getByRole('heading', { name: 'No users found' });
-//     expect(AssertionElement).not.toBeNull();
-// });
+test('Search by empty search term', async ({ page }) => {
+    await page.getByPlaceholder('Search…').click();
+    await page.getByPlaceholder('Search…').press('Enter');
+    let AssertionElement =  await page.getByRole('heading', { name: 'Search Results for ""' });
+    expect(AssertionElement).not.toBeNull();
+    AssertionElement =  await page.getByRole('heading', { name: 'No users found' });
+    expect(AssertionElement).not.toBeNull();
+});
 
 
-// test('Copy Link', async ({ page }) => {
-//     await page.locator('.share').first().click();
-//     // await page.locator('div:nth-child(3) > .post-container > .post-buttons > .share > .share-button').click(); // This works as well
-//     await page.getByRole('button', { name: 'Copy Link' }).click();
-//     const AssertionElement = await page.getByText('Link copied to clipboard').click();
-//     expect(AssertionElement).not.toBeNull();
-// });
+
 

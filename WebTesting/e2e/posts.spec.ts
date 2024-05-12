@@ -23,6 +23,14 @@ test.beforeEach('Log in', async ({ page }) => {
     expect(loggedInElement).not.toBeNull();
 });
 
+test('Copy Link', async ({ page }) => {
+    await page.locator('.share').first().click();
+    // await page.locator('div:nth-child(3) > .post-container > .post-buttons > .share > .share-button').click(); // This works as well
+    await page.getByRole('button', { name: 'Copy Link' }).click();
+    const AssertionElement = await page.getByText('Link copied to clipboard').click();
+    expect(AssertionElement).not.toBeNull();
+});
+
 test.describe('POSTING', () => {
     test ('Create Post', async ({ page }) => {
         await page.getByRole('button', { name: 'Create' }).click();
@@ -134,8 +142,6 @@ test('Create Post/Comment, Save it, Hide it, Delete it', async ({ page }) => {
     expect(tmp).not.toBeNull();
 
 });
-
-
 
 test('Photo Post', async ({ page }) => {
 

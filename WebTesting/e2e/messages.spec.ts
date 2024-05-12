@@ -7,7 +7,7 @@ import { time } from 'console';
 //     await page.setViewportSize({width: 1366, height: 720});
 //     await page.evaluate(() => { (document.body.style as any).zoom = 'reset'; });
     
-//     await page.goto(dummyLib.paths.LocalHost + '/login', { waitUntil: 'load' });
+//     await page.goto(dummyLib.paths.webPath + '/login', { waitUntil: 'load' });
     
 //     // Enter the correct email-password combination
 //     await page.getByLabel('Password *').click();
@@ -173,6 +173,5 @@ test('UserA replies ', async ({page, browser}) => {
     let loggedInElement = await page.getByAltText('threadit logo');
     expect(loggedInElement).not.toBeNull();
     await page.waitForTimeout(1000);
-
     
 });
