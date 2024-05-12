@@ -1,0 +1,22 @@
+import sys
+sys.path.append('E:\Spring2024\SW\Phase3\mobile_tests\MobileTesting\Phase_4')
+from main import *
+
+el1 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.Button\").instance(4)")
+el1.click()
+el2 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="My profile")
+el2.click()
+el3 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.view.View\").instance(22)")
+el3.click()
+el4 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Mark Spoiler")
+el4.click()
+el5 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.view.View\").instance(22)")
+el5.click()
+el6 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Mark NSFW")
+el6.click()
+el7 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Back")
+el7.click()
+el8 = driver.find_element(by=AppiumBy.ANDROID_UIAUTOMATOR, value="new UiSelector().className(\"android.widget.Button\").instance(4)")
+el8.click()
+el9 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="My profile")
+el9.click()

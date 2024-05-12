@@ -19,6 +19,17 @@ jimmy_name="jimmyy"
 jimmy_pass="pass1234"
 jimmy_pass_new="pass12345"
 
+
+# assert function
+def assert_element(element, message):
+    sleep(0.5)
+    try:
+        assert element is not None, message
+    except AssertionError as e:
+        print(e)
+    return element
+
+
 # def login(name: str, password: str): #tested, CORRECT
 #     # el1 = driver.find_element(by=AppiumBy.ACCESSIBILITY_ID, value="Already a redditor? Log in")
 #     wait=WebDriverWait(driver, 10)
