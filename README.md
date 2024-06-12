@@ -11,8 +11,8 @@ Cross-Platform (Mobile) Team: Developed the Android application, ensuring it pro
 Testing Team: Conducted rigorous testing of both the web and mobile applications to identify and resolve bugs, ensuring overall reliability and performance.
 DevOps Team: Handled deployment, continuous integration/continuous deployment (CI/CD) pipelines, and maintaining the infrastructure required for the project.
 
-  My Roles
-  Tester
+My Roles  
+Tester  
   As a tester for Threddit, I was responsible for both the testing of the Android application as well as the stress and load testing for the desktop app. My tasks included the following:
   1. Developing Test Scripts for the Android Threddit App using Flutter Appium driver.
   2. Conducting stress and load testing for the desktop application using JMeter.
