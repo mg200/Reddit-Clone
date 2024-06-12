@@ -1,6 +1,8 @@
-# Testing
+![WhatsApp Image 2024-04-16 at 17 28 55_c4a53d7b](https://github.com/mg200/Reddit-Clone/assets/104623598/cddf6588-e959-4e81-bf6a-8becbcd742ed)# Testing
 Threadit : A Reddit Clone
 Welcome to Threadit, a fully functional Reddit clone developed as part of a university course on Software Engineering. This repository contains the source code and documentation for both the website and Android app versions of Threadit, a platform where users can create, share, and discuss content in a community-driven environment.
+![WhatsApp Image 2024-04-16 at 17 28 55_c4a53d7b](https://github.com/mg200/Reddit-Clone/assets/104623598/1e9f0e3d-8541-44e5-8ced-7c2621a7d59a)
+
 
 # Project Overview
 Threadit was developed by a team of 18 students, organized into specialized teams to ensure a comprehensive and high-quality product. The project included both a responsive website and a feature-rich Android application. The teams and their primary responsibilities were as follows:
